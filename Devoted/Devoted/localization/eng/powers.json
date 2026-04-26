@@ -1,0 +1,11 @@
+{
+  "DEVOTED-FAITH_POWER.description": "test 1",
+  "DEVOTED-FAITH_POWER.smartDescription": "test 2",
+  "DEVOTED-FAITH_POWER.title": "FaithPower",
+  "DEVOTED-DEVOTION_POWER.description": "test 1",
+  "DEVOTED-DEVOTION_POWER.smartDescription": "test 2",
+  "DEVOTED-DEVOTION_POWER.title": "DevotionPower",
+  "DEVOTED-ZEAL_POWER.description": "test 1",
+  "DEVOTED-ZEAL_POWER.smartDescription": "test 2",
+  "DEVOTED-ZEAL_POWER.title": "ZealPower"
+}
