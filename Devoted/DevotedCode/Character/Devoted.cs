@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
+using Devoted.DevotedCode.Cards.Basic;
 using Devoted.DevotedCode.Extensions;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
@@ -23,16 +24,16 @@ public class Devoted : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>()
+        ModelDb.Card<StrikeDevoted>(),
+        ModelDb.Card<StrikeDevoted>(),
+        ModelDb.Card<StrikeDevoted>(),
+        ModelDb.Card<StrikeDevoted>(),
+        ModelDb.Card<StrikeDevoted>(),
+        ModelDb.Card<DefendDevoted>(),
+        ModelDb.Card<DefendDevoted>(),
+        ModelDb.Card<DefendDevoted>(),
+        ModelDb.Card<TestOfFaith>(),
+        ModelDb.Card<WoundCare>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>

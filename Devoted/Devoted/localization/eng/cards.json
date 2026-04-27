@@ -5,7 +5,7 @@
   "DEVOTED-DEFEND_DEVOTED.title": "Defend",
   "DEVOTED-WOUND_CARE.description": "Heal {Heal:diff()} HP.",
   "DEVOTED-WOUND_CARE.title": "Wound Care",
-  "DEVOTED-TEST_OF_FAITH.description": "Gain {FaithGain:diff()} [gold]Faith[/gold].",
+  "DEVOTED-TEST_OF_FAITH.description": "Gain [gold]Penance: Faith[/gold] {FaithGain:diff()}.",
   "DEVOTED-TEST_OF_FAITH.title": "Test Of Faith",
   "DEVOTED-DIVINE_HYMN.description": "Gain 5 [gold]Block[/gold].\nGain additional block equal to all [gold]Faith[/gold].",
   "DEVOTED-DIVINE_HYMN.title": "Divine Hymn",
@@ -21,7 +21,7 @@
   "DEVOTED-RARE_DEFEND1.title": "RareDefend1",
   "DEVOTED-CONVICTION.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {DevotionGain:diff()} [gold]Devotion[/gold].",
   "DEVOTED-CONVICTION.title": "Conviction",
-  "DEVOTED-FANATIC_STRIKE.description": "Deal {Damage:diff()} damage.\nGain {ZealGain:diff()} [gold]Zeal[/gold].\nLose {FaithLose:diff()} [gold]Faith[/gold].",
+  "DEVOTED-FANATIC_STRIKE.description": "Deal {Damage:diff()} damage twice.\nGain {ZealGain:diff()} [gold]Zeal[/gold].\nLose {FaithLose:diff()} [gold]Faith[/gold].",
   "DEVOTED-FANATIC_STRIKE.title": "Fanatic Strike",
   "DEVOTED-ZEALOUS_STRIKE.description": "Deal {Damage:diff()} damage.\nGain {ZealGain:diff()} [gold]Zeal[/gold].",
   "DEVOTED-ZEALOUS_STRIKE.title": "Zealous Strike"

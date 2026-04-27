@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using Devoted.DevotedCode.Cards.Common;
+using Devoted.DevotedCode.Character;
 using Devoted.DevotedCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,6 +11,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Devoted.DevotedCode.Cards.Rare;
 
+
+[Pool(typeof(DevotedCardPool))]
 public class RareDefend1() : DevotedCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     

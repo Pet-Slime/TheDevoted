@@ -1,10 +1,13 @@
 ﻿using BaseLib.Utils;
+using Devoted.DevotedCode.Character;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Devoted.DevotedCode.Cards.Rare;
 
+
+[Pool(typeof(DevotedCardPool))]
 public class RareAttack2() : DevotedCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];

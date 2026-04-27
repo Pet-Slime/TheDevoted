@@ -1,10 +1,12 @@
 ﻿using BaseLib.Utils;
+using Devoted.DevotedCode.Character;
 using Devoted.DevotedCode.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -13,6 +15,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace Devoted.DevotedCode.Cards.Common;
 
 
+[Pool(typeof(DevotedCardPool))]
 public class DivineHymn() : DevotedCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     
@@ -27,6 +30,8 @@ public class DivineHymn() : DevotedCard(2, CardType.Skill, CardRarity.Common, Ta
     
     ];
 
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FaithPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
