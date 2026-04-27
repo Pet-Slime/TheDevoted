@@ -18,7 +18,7 @@ public class TestOfFaith() : DevotedCard(1, CardType.Skill, CardRarity.Basic, Ta
     {
         TestOfFaith cardSource = this;
         await CreatureCmd.TriggerAnim(cardSource.Owner.Creature, "Cast", cardSource.Owner.Character.CastAnimDelay);
-        FaithPower faithPower = await PowerCmd.Apply<FaithPower>(cardSource.Owner.Creature, cardSource.DynamicVars["FaithGain"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
+        FaithPower faithPower = await PowerCmd.Apply<FaithPower>(cardSource.Owner.Creature, cardSource.DynamicVars["FaithGain"].BaseValue, cardSource.Owner.Creature, (CardModel) cardSource);
     }
 
 

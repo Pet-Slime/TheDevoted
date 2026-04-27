@@ -61,9 +61,7 @@
 
     <ItemGroup>
         <Folder Include="DevotedCode\Cards\Ancient\" />
-        <Folder Include="DevotedCode\Cards\Common\" />
         <Folder Include="DevotedCode\Cards\Rare\" />
-        <Folder Include="DevotedCode\Cards\Uncommon\" />
         <Folder Include="Devoted\images\card_portraits\big\"/>
         <Folder Include="Devoted\images\powers\big\"/>
         <Folder Include="Devoted\images\relics\big\"/>
