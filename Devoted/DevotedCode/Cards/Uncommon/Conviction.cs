@@ -1,4 +1,5 @@
 ﻿using BaseLib.Utils;
+using Devoted.DevotedCode.Cards.Common;
 using Devoted.DevotedCode.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,28 +8,27 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace Devoted.DevotedCode.Cards.Common;
+namespace Devoted.DevotedCode.Cards.Uncommon;
 
-public class CommonDefend1() : DevotedCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Conviction() : DevotedCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];    
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("FaithGain", 3m), new BlockVar(5, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("DevotionGain", 1m), new BlockVar(11, ValueProp.Move)];
 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CommonDefend1 cardSource = this;
+        Conviction cardSource = this;
         
         await CommonActions.CardBlock(this, cardPlay);
         await CreatureCmd.TriggerAnim(cardSource.Owner.Creature, "Cast", cardSource.Owner.Character.CastAnimDelay);
-        FaithPower faithPower = await PowerCmd.Apply<FaithPower>(cardSource.Owner.Creature, cardSource.DynamicVars["FaithGain"].BaseValue, cardSource.Owner.Creature, (CardModel) cardSource);
+        DevotionPower vigorPower = await PowerCmd.Apply<DevotionPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["DevotionGain"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
     }
 
 
     protected override void OnUpgrade()
     {
-        DynamicVars["FaithGain"].UpgradeValueBy(3m);
+        DynamicVars["DevotionGain"].UpgradeValueBy(1m);
         DynamicVars["Block"].UpgradeValueBy(3m);
     }
 }

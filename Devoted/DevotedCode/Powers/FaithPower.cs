@@ -15,11 +15,8 @@ public class FaithPower : DevotedPower
     
     public override bool AllowNegative => true;
 
-    public override async Task AfterPowerAmountChanged(
-        PowerModel power,
-        Decimal amount,
-        Creature? applier,
-        CardModel? cardSource)
+    public override async Task AfterPowerAmountChanged(PlayerChoiceContext ctx,
+        PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
     {
         var player = Owner.Player;
         if (power is not FaithPower || amount <= 0 || applier != null || player == null)
@@ -32,10 +29,10 @@ public class FaithPower : DevotedPower
         var VigorGain = Math.Min(0, (Decimal) 5 + player.Creature.GetPowerAmount<ZealPower>()) ;
         var baseDevotion = (Decimal) player.Creature.GetPowerAmount<DevotionPower>();
 
-        VigorPower vigorPower = await PowerCmd.Apply<VigorPower>(Owner, VigorGain, applier, cardSource, true);
-        
+        VigorPower vigorPower = await PowerCmd.Apply<VigorPower>(ctx, Owner, VigorGain, applier, cardSource, true);
+
         var newFaith = baseDevotion-10;
-        await PowerCmd.ModifyAmount(this, newFaith, Owner, cardSource);
+        await PowerCmd.ModifyAmount(ctx,this, newFaith, Owner, cardSource);
 
     }
 }

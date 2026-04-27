@@ -12,15 +12,15 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Devoted.DevotedCode.Cards.Common;
 
-public class CommonDefend2() : DevotedCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
+
+public class DivineHymn() : DevotedCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];    
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CalculationBaseVar(5M), new CalculationExtraVar(1M), 
     
         new CalculatedBlockVar(ValueProp.Move).WithMultiplier((Func<CardModel, Creature, Decimal>) ((card, _) =>
         {
-            CombatState combatState = card.CombatState;
+            ICombatState combatState = card.CombatState;
             return (Decimal) (combatState != null ? combatState.PlayerCreatures.Where<Creature>((Func<Creature, bool>) (c => c.IsAlive)).Sum<Creature>((Func<Creature, int>) (c => c.GetPowerAmount<FaithPower>())) : 0);
         }))
     
@@ -30,7 +30,7 @@ public class CommonDefend2() : DevotedCard(2, CardType.Skill, CardRarity.Common,
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        CommonDefend2 mirage = this;
+        DivineHymn mirage = this;
         Decimal num = await CreatureCmd.GainBlock(mirage.Owner.Creature, mirage.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target), mirage.DynamicVars.CalculatedBlock.Props, cardPlay);
     }
     
