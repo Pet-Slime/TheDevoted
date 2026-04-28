@@ -7,6 +7,9 @@ namespace Devoted.DevotedCode;
 public static class MyCustomEnums
 {
 
+    
+    [CustomEnum] public static CardTag PenanceTrigger;
+    
     [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword Faith;
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]

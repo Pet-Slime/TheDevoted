@@ -10,21 +10,28 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Devoted.DevotedCode.Powers;
 
-public class PenanceRagePower : DevotedPower
+
+  
+public class PenanceWaxedPower: DevotedPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
     
     public override bool AllowNegative => false;
     
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<VigorPower>()]; 
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<WeakPower>()]; 
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Owner.Player || !cardPlay.Card.Tags.Contains(MyCustomEnums.PenanceTrigger))
             return;
 
-        await ResolvePenanceRageTriggers(choiceContext, cardPlay.Card);
+        PenanceWaxedPower power = this;
+        var target = cardPlay.Target;
+        if (target == null || target == power.Owner)
+            return;
+
+        await ResolvePenanceWaxedTriggers(choiceContext, target, cardPlay.Card);
     }
     
     public override async Task AfterDamageReceived(
@@ -32,18 +39,18 @@ public class PenanceRagePower : DevotedPower
         Creature target,
         DamageResult result,
         ValueProp props,
-        Creature? _,
+        Creature? dealer,
         CardModel? cardSource)
     {
-        if (target != Owner || !props.IsPoweredAttack() || result.UnblockedDamage <= 0)
+        if (target != Owner || !props.IsPoweredAttack() || result.UnblockedDamage <= 0 || dealer == null)
             return;
 
-        await ResolvePenanceRageTriggers(choiceContext, cardSource);
+        await ResolvePenanceWaxedTriggers(choiceContext, dealer, cardSource);
     }
     
-    private async Task ResolvePenanceRageTriggers(PlayerChoiceContext choiceContext, CardModel? cardSource)
+    private async Task ResolvePenanceWaxedTriggers(PlayerChoiceContext choiceContext, Creature dealer, CardModel? cardSource)
     {
-        PenanceRagePower power = this;
+        PenanceWaxedPower power = this;
         var player = Owner.Player;
 
         if (player == null)
@@ -56,7 +63,7 @@ public class PenanceRagePower : DevotedPower
         {
             power.Flash();
 
-            await PowerCmd.Apply<VigorPower>(choiceContext, power.Owner, power.Amount, power.Owner, cardSource);
+            await PowerCmd.Apply<WeakPower>(choiceContext, dealer, power.Amount, power.Owner, cardSource);
 
             if (healTrigger > 0)
             {

@@ -1,4 +1,5 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -19,6 +20,14 @@ public class PenanceDrawPower: DevotedPower
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FaithPower>()]; 
     
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card.Owner != Owner.Player || !cardPlay.Card.Tags.Contains(MyCustomEnums.PenanceTrigger))
+            return;
+
+        await ResolvePenanceDrawTriggers(choiceContext, cardPlay.Card);
+    }
+    
     public override async Task AfterDamageReceived(
         PlayerChoiceContext choiceContext,
         Creature target,
@@ -27,39 +36,52 @@ public class PenanceDrawPower: DevotedPower
         Creature? _,
         CardModel? cardSource)
     {
-        PenanceDrawPower power = this;
-        if (target != power.Owner || !props.IsPoweredAttack() || result.UnblockedDamage <= 0)
+        if (target != Owner || !props.IsPoweredAttack() || result.UnblockedDamage <= 0)
             return;
+
+        await ResolvePenanceDrawTriggers(choiceContext, cardSource);
+    }
+    
+    private async Task ResolvePenanceDrawTriggers(PlayerChoiceContext choiceContext, CardModel? cardSource)
+    {
+        PenanceDrawPower power = this;
         var player = Owner.Player;
+
+        if (player == null)
+            return;
+
         var triggers = player.Creature.GetPowerAmount<PenanceTriggerPower>() + 1;
         var healTrigger = player.Creature.GetPowerAmount<PenanceHealPower>();
+
         for (int i = 0; i < triggers; i++)
         {
             power.Flash();
-            DrawCardsNextTurnPower vigorPower = await PowerCmd.Apply<DrawCardsNextTurnPower>(choiceContext, power.Owner, power.Amount,
-                power.Owner, (CardModel)null);
+
+            await PowerCmd.Apply<DrawCardsNextTurnPower>(choiceContext, power.Owner, power.Amount, power.Owner, cardSource);
 
             if (healTrigger > 0)
-            {         
+            {
                 var healPower = player.Creature.GetPower<PenanceHealPower>();
                 if (healPower != null)
                 {
-                    
                     await CreatureCmd.Heal(power.Owner, healTrigger);
-                    await PowerCmd.ModifyAmount(choiceContext, healPower, -1, healPower.Owner, (CardModel)null);
+                    await PowerCmd.ModifyAmount(choiceContext, healPower, -1, healPower.Owner, cardSource);
+
+                    // refresh after modification
                     healTrigger = player.Creature.GetPowerAmount<PenanceHealPower>();
                 }
             }
 
             if (power.Amount - 1 <= 0)
             {
-                await PowerCmd.Remove((PowerModel)power);
+                await PowerCmd.Remove(power);
                 break;
             }
             else
             {
-                await PowerCmd.ModifyAmount(choiceContext, this, -1, Owner, (CardModel)null);
+                await PowerCmd.ModifyAmount(choiceContext, this, -1, Owner, cardSource);
             }
         }
     }
+ 
 }

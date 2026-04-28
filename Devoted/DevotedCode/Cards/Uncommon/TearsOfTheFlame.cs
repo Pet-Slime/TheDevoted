@@ -1,0 +1,42 @@
+﻿using BaseLib.Utils;
+using Devoted.DevotedCode.Cards.Common;
+using Devoted.DevotedCode.Character;
+using Devoted.DevotedCode.Powers;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
+
+namespace Devoted.DevotedCode.Cards.Uncommon;
+
+
+[Pool(typeof(DevotedCardPool))]
+public class TearsOfTheFlame() : DevotedCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+{
+      
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceEnergyPower>(2M), new DamageVar(15, ValueProp.Move), new HpLossVar(2M)];
+
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PenanceEnergyPower>()];
+
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        TearsOfTheFlame cardSource = this;
+        ArgumentNullException.ThrowIfNull((object) cardPlay.Target, "cardPlay.Target");
+        AttackCommand attackCommand = await DamageCmd.Attack(cardSource.DynamicVars.Damage.BaseValue).FromCard((CardModel) cardSource).Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        PenanceEnergyPower vigorPower = await PowerCmd.Apply<PenanceEnergyPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["PenanceEnergyPower"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
+        IEnumerable<DamageResult> damageResults = await CreatureCmd.Damage(choiceContext, cardSource.Owner.Creature, cardSource.DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, (CardModel) cardSource);
+    }
+
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars["PenanceEnergyPower"].UpgradeValueBy(1M);
+        DynamicVars.Damage.UpgradeValueBy(3m);
+    }
+}

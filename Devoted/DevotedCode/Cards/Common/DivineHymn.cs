@@ -19,7 +19,7 @@ namespace Devoted.DevotedCode.Cards.Common;
 public class DivineHymn() : DevotedCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CalculationBaseVar(5M), new CalculationExtraVar(1M), 
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7, ValueProp.Move), new CalculationBaseVar(0M), new CalculationExtraVar(1M), 
     
         new CalculatedBlockVar(ValueProp.Move).WithMultiplier((Func<CardModel, Creature, Decimal>) ((card, _) =>
         {
