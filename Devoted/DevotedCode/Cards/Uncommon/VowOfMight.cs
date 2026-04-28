@@ -24,7 +24,6 @@ public class VowOfMight() : DevotedCard(1, CardType.Skill, CardRarity.Uncommon, 
     {
         VowOfMight cardSource = this;
         
-        await CommonActions.CardBlock(this, cardPlay);
         await CreatureCmd.TriggerAnim(cardSource.Owner.Creature, "Cast", cardSource.Owner.Character.CastAnimDelay);
         VigorPower vigorPower = await PowerCmd.Apply<VigorPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["VigorPower"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
         VowOfStrengthPower vowOfStrengthPower = await PowerCmd.Apply<VowOfStrengthPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["VowOfStrengthPower"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
