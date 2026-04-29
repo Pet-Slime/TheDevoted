@@ -2,6 +2,7 @@
 using Devoted.DevotedCode.Cards.Rare;
 using Devoted.DevotedCode.Character;
 using Devoted.DevotedCode.Powers;
+using Devoted.DevotedCode.Powers.PenancePowers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;

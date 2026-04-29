@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using BaseLib.Utils;
 using Devoted.DevotedCode.Character;
 using Devoted.DevotedCode.Powers;
+using Devoted.DevotedCode.Powers.PenancePowers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;

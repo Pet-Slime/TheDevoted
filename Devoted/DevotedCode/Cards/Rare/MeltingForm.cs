@@ -16,7 +16,7 @@ namespace Devoted.DevotedCode.Cards.Rare;
 public class MeltingForm() : DevotedCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+  //  public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<SlipperyPower>()];
     

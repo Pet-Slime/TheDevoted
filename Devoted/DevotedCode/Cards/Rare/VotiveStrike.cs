@@ -1,6 +1,7 @@
 ﻿using BaseLib.Utils;
 using Devoted.DevotedCode.Character;
 using Devoted.DevotedCode.Powers;
+using Devoted.DevotedCode.Powers.VowPowers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;

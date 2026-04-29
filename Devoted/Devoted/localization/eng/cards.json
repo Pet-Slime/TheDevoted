@@ -33,7 +33,7 @@
   "DEVOTED-RETRIBUTION.title": "Retribution",
   "DEVOTED-RIGHTEOUS_DEFENSE.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {PenanceRetributionPower:diff()} [gold]Penance: Retribution[/gold].",
   "DEVOTED-RIGHTEOUS_DEFENSE.title": "Righteous Defense",
-  "DEVOTED-TEARS_OF_THE_FLAME.description": "Deal {Damage:diff()} damage.\nGain {PenanceEnergyPower:diff()} [gold]Penance: Retribution[/gold].\nTake 5 Damage.\n.Trigger all [gold]Penance[/gold] effects on you.",
+  "DEVOTED-TEARS_OF_THE_FLAME.description": "Deal {Damage:diff()} damage.\nGain {PenanceEnergyPower:diff()} [gold]Penance: Retribution[/gold].\nTake 5 Damage.\n.Trigger all of your [gold]Penance[/gold] effects.",
   "DEVOTED-TEARS_OF_THE_FLAME.title": "Tears Of The Flame",
   "DEVOTED-LASHING.description": "Deal {Damage:diff()} damage 3 times.\nGain {PenanceRagePower:diff()} [gold]Penance: Rage[/gold].",
   "DEVOTED-LASHING.title": "Lashing",
@@ -48,5 +48,7 @@
   "DEVOTED-CANDLE_LIGHT.description": "Gain {Block:diff()} [gold]Block[/gold]. Gain {PenanceWaxedPower:diff()} [gold]Penance: Waxy[/gold]",
   "DEVOTED-CANDLE_LIGHT.title": "Candle Light",
   "DEVOTED-CONTEMPLATION.description": "Draw cards equal to your current [gold]Faith[/gold].\nGain {DevotionPower:diff()} [gold]Devotion[/gold].\nLose {ZealPower:diff()} [gold]Zeal[/gold].",
-  "DEVOTED-CONTEMPLATION.title": "Contemplation"
+  "DEVOTED-CONTEMPLATION.title": "Contemplation",
+  "DEVOTED-CRUSADE.description": "Cards containing “Strike” deal {CrusadePower:diff()} additional damage and trigger all your [gold]Penance[/gold] effects when played.",
+  "DEVOTED-CRUSADE.title": "Crusade"
 }

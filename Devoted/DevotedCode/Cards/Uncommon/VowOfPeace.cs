@@ -1,6 +1,8 @@
 ﻿using BaseLib.Utils;
 using Devoted.DevotedCode.Character;
 using Devoted.DevotedCode.Powers;
+using Devoted.DevotedCode.Powers.FaithPowers;
+using Devoted.DevotedCode.Powers.VowPowers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;

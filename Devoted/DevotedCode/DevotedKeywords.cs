@@ -9,6 +9,9 @@ public static class MyCustomEnums
 
     
     [CustomEnum] public static CardTag PenanceTrigger;
+    [CustomEnum] public static CardTag PenanceCard;
+    [CustomEnum] public static CardTag SerenityTrigger;
+    [CustomEnum] public static CardTag SerenityCard;
     
     [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword Faith;

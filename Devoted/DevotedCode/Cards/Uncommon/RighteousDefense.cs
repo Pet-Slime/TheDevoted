@@ -2,6 +2,7 @@
 using Devoted.DevotedCode.Cards.Common;
 using Devoted.DevotedCode.Character;
 using Devoted.DevotedCode.Powers;
+using Devoted.DevotedCode.Powers.PenancePowers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -15,7 +16,7 @@ namespace Devoted.DevotedCode.Cards.Uncommon;
 
 
 [Pool(typeof(DevotedCardPool))]
-public class RighteousDefense() : DevotedCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class RighteousDefense() : DevotedCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
       
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceRetributionPower>(3M), new BlockVar(8M, ValueProp.Move)];
