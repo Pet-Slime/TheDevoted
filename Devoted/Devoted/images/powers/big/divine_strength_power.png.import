@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0nxrktjqi213"
-path="res://.godot/imported/power.png-9142263bf599a1e22252debe4773c944.ctex"
+uid="uid://b8dbjaf2l4oll"
+path="res://.godot/imported/divine_strength_power.png-cf3e1c9364ce2972102141362c1c580e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Devoted/images/powers/power.png"
-dest_files=["res://.godot/imported/power.png-9142263bf599a1e22252debe4773c944.ctex"]
+source_file="res://Devoted/images/powers/big/divine_strength_power.png"
+dest_files=["res://.godot/imported/divine_strength_power.png-cf3e1c9364ce2972102141362c1c580e.ctex"]
 
 [params]
 

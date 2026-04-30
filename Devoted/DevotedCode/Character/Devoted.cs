@@ -1,6 +1,8 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
 using Devoted.DevotedCode.Cards.Basic;
+using Devoted.DevotedCode.Cards.Common;
+using Devoted.DevotedCode.Cards.Uncommon;
 using Devoted.DevotedCode.Extensions;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
@@ -24,9 +26,9 @@ public class Devoted : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        ModelDb.Card<StrikeDevoted>(),
-        ModelDb.Card<StrikeDevoted>(),
-        ModelDb.Card<StrikeDevoted>(),
+        ModelDb.Card<DivineStrike>(),
+        ModelDb.Card<SerenityCalmMind>(),
+        ModelDb.Card<BreathingExercise>(),
         ModelDb.Card<StrikeDevoted>(),
         ModelDb.Card<StrikeDevoted>(),
         ModelDb.Card<DefendDevoted>(),

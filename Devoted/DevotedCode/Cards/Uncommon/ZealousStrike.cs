@@ -20,7 +20,7 @@ public class ZealousStrike() : DevotedCard(1, CardType.Attack, CardRarity.Uncomm
 {
     
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];    
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("ZealGain", 1m), new DamageVar(11, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("ZealGain", 2m), new DamageVar(11, ValueProp.Move)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ZealPower>()];
 

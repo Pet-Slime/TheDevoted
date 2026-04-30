@@ -1,9 +1,11 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using Devoted.DevotedCode.Powers.FaithPowers;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -18,6 +20,9 @@ public class SerenityFaithPower: DevotedPower
     private const string PlayMaxKey = "PlayMax";
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar(PlayMaxKey, 4M)];
+    
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FaithPower>()]; 
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -45,7 +50,7 @@ public class SerenityFaithPower: DevotedPower
     private async Task ResolveSerenityEffect(PlayerChoiceContext choiceContext)
     {
         SerenityFaithPower power = this;
-        Decimal num = await CreatureCmd.GainBlock(power.Owner, (Decimal) power.Amount, ValueProp.Unpowered, (CardPlay) null);
+        await PowerCmd.Apply<FaithPower>(choiceContext, power.Owner, power.Amount, power.Owner, null);
 
     }
     

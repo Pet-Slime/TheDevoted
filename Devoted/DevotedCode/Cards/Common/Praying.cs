@@ -1,0 +1,36 @@
+﻿using BaseLib.Utils;
+using Devoted.DevotedCode.Character;
+using Devoted.DevotedCode.Powers.FaithPowers;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
+
+namespace Devoted.DevotedCode.Cards.Common;
+
+  
+[Pool(typeof(DevotedCardPool))]
+public class Praying() : DevotedCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+{
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("FaithGain", 3m)];
+
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FaithPower>()];
+    
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        Praying cardSource = this;
+        
+        await CreatureCmd.TriggerAnim(cardSource.Owner.Creature, "Cast", cardSource.Owner.Character.CastAnimDelay);
+        FaithPower vigorPower = await PowerCmd.Apply<FaithPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["FaithGain"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
+    }
+
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars["FaithGain"].UpgradeValueBy(2m);
+    }
+}

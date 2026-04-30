@@ -18,7 +18,7 @@ public class Mortification() : DevotedCard(2, CardType.Skill, CardRarity.Common,
 {
     
     protected override HashSet<CardTag> CanonicalTags => [MyCustomEnums.PenanceTrigger];
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(5M, ValueProp.Unpowered | ValueProp.Move), new BlockVar(16M, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(4M, ValueProp.Unpowered | ValueProp.Move), new BlockVar(16M, ValueProp.Move)];
     
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

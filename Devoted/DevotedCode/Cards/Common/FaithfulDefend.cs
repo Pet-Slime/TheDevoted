@@ -18,7 +18,7 @@ public class FaithfulDefend() : DevotedCard(1, CardType.Skill, CardRarity.Common
 {
     
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];    
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("FaithGain", 3m), new BlockVar(7, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("FaithGain", 1m), new BlockVar(7, ValueProp.Move)];
 
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FaithPower>()];

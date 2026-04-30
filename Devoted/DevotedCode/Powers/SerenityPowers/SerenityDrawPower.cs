@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Devoted.DevotedCode.Powers.SerenityPowers;
@@ -45,7 +46,7 @@ public class SerenityDrawPower: DevotedPower
     private async Task ResolveSerenityEffect(PlayerChoiceContext choiceContext)
     {
         SerenityDrawPower power = this;
-        Decimal num = await CreatureCmd.GainBlock(power.Owner, (Decimal) power.Amount, ValueProp.Unpowered, (CardPlay) null);
+        await PowerCmd.Apply<DrawCardsNextTurnPower>(choiceContext, power.Owner, power.Amount, power.Owner, null);
 
     }
     

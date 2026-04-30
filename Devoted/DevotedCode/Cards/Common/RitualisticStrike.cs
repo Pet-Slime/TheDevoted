@@ -19,7 +19,7 @@ public class RitualisticStrike() : DevotedCard(1, CardType.Attack, CardRarity.Co
 {
     
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];    
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("FaithGain", 3m), new DamageVar(9, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("FaithGain", 1m), new DamageVar(9, ValueProp.Move)];
 
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FaithPower>()];

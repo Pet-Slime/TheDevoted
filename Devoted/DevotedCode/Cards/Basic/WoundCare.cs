@@ -12,7 +12,7 @@ namespace Devoted.DevotedCode.Cards.Basic;
 public class WoundCare() : DevotedCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(4)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(5)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
