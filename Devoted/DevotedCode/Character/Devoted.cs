@@ -19,6 +19,7 @@ public class Devoted : PlaceholderCharacterModel
     public const string CharacterId = "Devoted";
 
     public static readonly Color Color = new("F4F1E8");
+    public override Color EnergyLabelOutlineColor => new("725C37");
 
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Feminine;
@@ -26,9 +27,9 @@ public class Devoted : PlaceholderCharacterModel
 
     public override IEnumerable<CardModel> StartingDeck =>
     [
-        ModelDb.Card<DivineStrike>(),
-        ModelDb.Card<SerenityCalmMind>(),
-        ModelDb.Card<BreathingExercise>(),
+        ModelDb.Card<StrikeDevoted>(),
+        ModelDb.Card<StrikeDevoted>(),
+        ModelDb.Card<StrikeDevoted>(),
         ModelDb.Card<StrikeDevoted>(),
         ModelDb.Card<StrikeDevoted>(),
         ModelDb.Card<DefendDevoted>(),
@@ -65,4 +66,6 @@ public class Devoted : PlaceholderCharacterModel
     public override string CustomCharacterSelectIconPath => "char_select_devote.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "char_select_devote_locked.png".CharacterUiPath();
     public override string CustomMapMarkerPath => "map_marker_devote.png".CharacterUiPath();
+    
+    public override string CustomEnergyCounterPath => "devoted_energy_counter.tscn".CharacterUiEnergyPath();
 }

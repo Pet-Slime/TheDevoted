@@ -68,4 +68,8 @@ public static class StringExtensions
     {
         return Path.Join(MainFile.ResPath, "images", "charui", path);
     }
+    public static string CharacterUiEnergyPath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "scenes", "combat", "energy_counters", path);
+    }
 }
