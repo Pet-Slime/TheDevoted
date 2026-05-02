@@ -16,7 +16,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace Devoted.DevotedCode.Cards.Rare;
 
 [Pool(typeof(DevotedCardPool))]
-public class VotiveStrike() : DevotedCard(2, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
+public class VotiveStrike() : DevotedCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];  
@@ -32,7 +32,8 @@ public class VotiveStrike() : DevotedCard(2, CardType.Attack, CardRarity.Rare, T
         VotiveStrike card = this;
         ArgumentNullException.ThrowIfNull((object) cardPlay.Target, "cardPlay.Target");
         AttackCommand attackCommand = await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).FromCard((CardModel) card).Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        VowOfStrikesPower vigorPower = await PowerCmd.Apply<VowOfStrikesPower>(choiceContext, card.Owner.Creature, (Decimal) card.DynamicVars["VowOfStrikes"].IntValue, card.Owner.Creature, (CardModel) card);
+        AttackCommand attackCommand2 = await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).FromCard((CardModel) card).Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        VowOfStrikesPower vigorPower = await PowerCmd.Apply<VowOfStrikesPower>(choiceContext, card.Owner.Creature, (Decimal) card.DynamicVars["VowOfStrikesPower"].IntValue, card.Owner.Creature, (CardModel) card);
     }
     
     protected override void OnUpgrade() => this.EnergyCost.UpgradeBy(-1);

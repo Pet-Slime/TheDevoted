@@ -69,7 +69,7 @@ public class PenanceEnergyPower: DevotedPower
                 if (healPower != null)
                 {
                     await CreatureCmd.Heal(power.Owner, healTrigger);
-                    await PowerCmd.ModifyAmount(choiceContext, healPower, -1, healPower.Owner, cardSource);
+  //                  await PowerCmd.ModifyAmount(choiceContext, healPower, -1, healPower.Owner, cardSource);
 
                     // refresh after modification
                     healTrigger = player.Creature.GetPowerAmount<PenanceHealPower>();

@@ -14,12 +14,12 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace Devoted.DevotedCode.Cards.Uncommon;
+namespace Devoted.DevotedCode.Cards.Rare;
 
 
 
 [Pool(typeof(DevotedCardPool))]
-public class FlamesOfPurification() : DevotedCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.Self)
+public class FlamesOfPurification() : DevotedCard(2, CardType.Attack, CardRarity.Rare, TargetType.Self)
 {
     
     protected override HashSet<CardTag> CanonicalTags => [MyCustomEnums.PenanceTrigger];

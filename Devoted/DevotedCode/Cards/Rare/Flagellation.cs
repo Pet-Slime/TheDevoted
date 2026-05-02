@@ -42,8 +42,9 @@ internal class Flagellation() : DevotedCard(0, CardType.Attack, CardRarity.Rare,
     protected override async Task OnPlay(MegaCrit.Sts2.Core.GameActions.Multiplayer.PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {    
         Flagellation card = this;
-        ArgumentNullException.ThrowIfNull((object) cardPlay.Target, "cardPlay.Target");AttackCommand attackCommand = await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).WithHitCount((int) ((CalculatedVar) card.DynamicVars["CalculatedHits"]).Calculate(cardPlay.Target)).FromCard((CardModel) card).Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
-        PenanceRagePower vigorPower = await PowerCmd.Apply<PenanceRagePower>(choiceContext, card.Owner.Creature, (Decimal) card.DynamicVars["PenanceRagePower"].IntValue * card.DynamicVars["CalculatedHits"].IntValue, card.Owner.Creature, (CardModel) card);
+        ArgumentNullException.ThrowIfNull((object) cardPlay.Target, "cardPlay.Target");
+        AttackCommand attackCommand = await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).WithHitCount((int) ((CalculatedVar) card.DynamicVars["CalculatedHits"]).Calculate(cardPlay.Target)).FromCard((CardModel) card).Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
+        PenanceRagePower vigorPower = await PowerCmd.Apply<PenanceRagePower>(choiceContext, card.Owner.Creature, (Decimal) card.DynamicVars["PenanceRagePower"].IntValue * ((CalculatedVar) card.DynamicVars["CalculatedHits"]).Calculate(cardPlay.Target), card.Owner.Creature, (CardModel) card);
     }
     
     protected override void OnUpgrade() => this.DynamicVars["PenanceRagePower"].UpgradeValueBy(1M);

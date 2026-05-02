@@ -14,7 +14,7 @@ namespace Devoted.DevotedCode.Cards.Basic;
 public class TestOfFaith() : DevotedCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("FaithGain", 2m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("FaithGain", 3m)];
 
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PenanceFaithPower>()];
@@ -27,5 +27,5 @@ public class TestOfFaith() : DevotedCard(1, CardType.Skill, CardRarity.Basic, Ta
     }
 
 
-    protected override void OnUpgrade() => this.DynamicVars["FaithGain"].UpgradeValueBy(1M);
+    protected override void OnUpgrade() => this.EnergyCost.UpgradeBy(-1);
 }

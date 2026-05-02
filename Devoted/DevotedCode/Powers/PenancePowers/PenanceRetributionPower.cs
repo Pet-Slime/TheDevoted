@@ -28,8 +28,15 @@ public class PenanceRetributionPower: DevotedPower
         if (!(hasPenanceTag || isValidStrike))
             return;
 
+
+        
         PenanceRetributionPower power = this;
         var target = cardPlay.Target;
+        
+        if (target == null)
+        {
+            target = power.Owner.Player.RunState.Rng.CombatTargets.NextItem<Creature>((IEnumerable<Creature>) power.Owner.CombatState.HittableEnemies);   
+        }
         if (target == null || target == power.Owner)
             return;
 
@@ -74,7 +81,7 @@ public class PenanceRetributionPower: DevotedPower
                 if (healPower != null)
                 {
                     await CreatureCmd.Heal(power.Owner, healTrigger);
-                    await PowerCmd.ModifyAmount(choiceContext, healPower, -1, healPower.Owner, cardSource);
+  //                  await PowerCmd.ModifyAmount(choiceContext, healPower, -1, healPower.Owner, cardSource);
 
                     // refresh after modification
                     healTrigger = player.Creature.GetPowerAmount<PenanceHealPower>();

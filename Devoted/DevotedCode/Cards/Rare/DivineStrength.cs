@@ -13,7 +13,7 @@ namespace Devoted.DevotedCode.Cards.Rare;
 
   
 [Pool(typeof(DevotedCardPool))]
-public class DivineStrength() : DevotedCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class DivineStrength() : DevotedCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
  
     

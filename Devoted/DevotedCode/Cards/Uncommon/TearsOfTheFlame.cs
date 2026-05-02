@@ -17,10 +17,10 @@ namespace Devoted.DevotedCode.Cards.Uncommon;
 
 
 [Pool(typeof(DevotedCardPool))]
-public class TearsOfTheFlame() : DevotedCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class TearsOfTheFlame() : DevotedCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
       
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceEnergyPower>(2M), new HpLossVar(5M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceEnergyPower>(2M), new HpLossVar(4M)];
 
     
     protected override HashSet<CardTag> CanonicalTags => [MyCustomEnums.PenanceTrigger];
@@ -30,7 +30,6 @@ public class TearsOfTheFlame() : DevotedCard(2, CardType.Skill, CardRarity.Uncom
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         TearsOfTheFlame cardSource = this;
-        ArgumentNullException.ThrowIfNull((object) cardPlay.Target, "cardPlay.Target");
         PenanceEnergyPower vigorPower = await PowerCmd.Apply<PenanceEnergyPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["PenanceEnergyPower"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
         IEnumerable<DamageResult> damageResults = await CreatureCmd.Damage(choiceContext, cardSource.Owner.Creature, cardSource.DynamicVars.HpLoss.BaseValue,  ValueProp.Unpowered | ValueProp.Move, (CardModel) cardSource);
     }

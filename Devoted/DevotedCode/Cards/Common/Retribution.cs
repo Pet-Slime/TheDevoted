@@ -18,7 +18,7 @@ namespace Devoted.DevotedCode.Cards.Common;
 public class Retribution() : DevotedCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
       
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceRetributionPower>(3M), new DamageVar(6, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceRetributionPower>(2M), new DamageVar(7, ValueProp.Move)];
 
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PenanceRetributionPower>()];

@@ -19,7 +19,7 @@ public class VowOfStrikesPower : DevotedPower
     
     public override bool AllowNegative => false;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new HpLossVar(5M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar("SelfDamage", 3M, ValueProp.Unblockable | ValueProp.Unpowered)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.ReplayStatic)];
     
@@ -37,7 +37,8 @@ public class VowOfStrikesPower : DevotedPower
         }
         else
         {
-            IEnumerable<DamageResult> damageResults = await CreatureCmd.Damage(choiceContext, vow.Owner.Player.Creature, vow.DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, (CardModel) null);
+            DamageVar dynamicVar = (DamageVar) vow.DynamicVars["SelfDamage"];
+            IEnumerable<DamageResult> damageResults = await CreatureCmd.Damage(choiceContext, vow.Owner, dynamicVar.BaseValue, dynamicVar.Props, vow.Owner, (CardModel) null);
         }
     }
     

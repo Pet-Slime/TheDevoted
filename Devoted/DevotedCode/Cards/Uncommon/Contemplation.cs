@@ -26,12 +26,11 @@ public class Contemplation() : DevotedCard(1, CardType.Skill, CardRarity.Uncommo
     {
         Contemplation cardSource = this;
         
-        await CommonActions.CardBlock(this, cardPlay);
         await CreatureCmd.TriggerAnim(cardSource.Owner.Creature, "Cast", cardSource.Owner.Character.CastAnimDelay);
         
         var faith = cardPlay.Card.Owner.Creature.GetPowerAmount<FaithPower>();
         IEnumerable<CardModel> cardModels = await CardPileCmd.Draw(choiceContext, cardSource.DynamicVars.Cards.BaseValue+faith, cardSource.Owner);
-        DevotionPower devotionPower = await PowerCmd.Apply<DevotionPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["DevotionPower"].IntValue * -1, cardSource.Owner.Creature, (CardModel) cardSource);
+        DevotionPower devotionPower = await PowerCmd.Apply<DevotionPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["DevotionPower"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
         ZealPower zealPower = await PowerCmd.Apply<ZealPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["ZealPower"].IntValue *-1, cardSource.Owner.Creature, (CardModel) cardSource);
     }
     

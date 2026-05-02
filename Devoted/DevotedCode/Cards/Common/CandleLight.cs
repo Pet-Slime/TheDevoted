@@ -20,7 +20,7 @@ namespace Devoted.DevotedCode.Cards.Common;
 public class CandleLight() : DevotedCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceWaxedPower>(1M), new BlockVar(3, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceWaxedPower>(2M), new BlockVar(3, ValueProp.Move)];
 
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PenanceWaxedPower>(), HoverTipFactory.FromPower<WeakPower>(),];

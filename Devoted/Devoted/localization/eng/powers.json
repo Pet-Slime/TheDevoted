@@ -1,6 +1,6 @@
 {
-  "DEVOTED-FAITH_POWER.description": "When at 10 or above [gold]Faith[/gold], lose 10 [gold]Faith[/gold] and gain 5 [gold]Vigor[/gold]",
-  "DEVOTED-FAITH_POWER.smartDescription": "When at 10 or above [gold]Faith[/gold], lose 10 [gold]Faith[/gold] and gain 5 [gold]Vigor[/gold]",
+  "DEVOTED-FAITH_POWER.description": "When at 10 or above [gold]Faith[/gold], lose 10 [gold]Faith[/gold] and gain 5 [gold]Vigor[/gold].",
+  "DEVOTED-FAITH_POWER.smartDescription": "When at 10 or above [gold]Faith[/gold], lose 10 [gold]Faith[/gold] and gain 5 [gold]Vigor[/gold].\nCurrent Faith: [blue]{Amount}[/blue]",
   "DEVOTED-FAITH_POWER.title": "Faith",
   "DEVOTED-DEVOTION_POWER.description": "Modify the starting value of Faith when it is triggered by [gold]Devotion[/gold].",
   "DEVOTED-DEVOTION_POWER.smartDescription": "Modify the starting value of Faith when it is triggered by [gold]Devotion[/gold].",
@@ -73,5 +73,8 @@
   "DEVOTED-LITANY_POWER.title": "Litany",
   "DEVOTED-DIVINE_STRENGTH_POWER.description": "When gaining [gold]Vigor[/gold], convert it into [blue]1[/blue] [gold]Strength[/gold].",
   "DEVOTED-DIVINE_STRENGTH_POWER.smartDescription": "When gaining [gold]Vigor[/gold], convert it into [blue]{Amount}[/blue] [gold]Strength[/gold].",
-  "DEVOTED-DIVINE_STRENGTH_POWER.title": "Divine Strength"
+  "DEVOTED-DIVINE_STRENGTH_POWER.title": "Divine Strength",
+  "DEVOTED-PENANCE_STRENGTH_POWER.description": "Whenever you take unblocked attack damage, gain [blue]1[/blue] [gold]Strength[/gold].\nThen reduce this amount by 1.",
+  "DEVOTED-PENANCE_STRENGTH_POWER.smartDescription": "Whenever you take unblocked attack damage, gain [blue]{Amount}[/blue] [gold]Strength[/gold].\nThen reduce this amount by 1.",
+  "DEVOTED-PENANCE_STRENGTH_POWER.title": "Penance: Strength"
 }

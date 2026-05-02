@@ -4,6 +4,7 @@ using Devoted.DevotedCode.Cards.Basic;
 using Devoted.DevotedCode.Cards.Common;
 using Devoted.DevotedCode.Cards.Uncommon;
 using Devoted.DevotedCode.Extensions;
+using Devoted.DevotedCode.Relics;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
@@ -41,7 +42,7 @@ public class Devoted : PlaceholderCharacterModel
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [
-        ModelDb.Relic<BurningBlood>()
+        ModelDb.Relic<FlameOfHope>()
     ];
 
     public override CardPoolModel CardPool => ModelDb.CardPool<DevotedCardPool>();

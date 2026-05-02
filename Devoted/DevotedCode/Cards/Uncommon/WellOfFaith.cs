@@ -19,6 +19,7 @@ public class WellOfFaith() : DevotedCard(2, CardType.Skill, CardRarity.Uncommon,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("Triggers", 1m), new PowerVar<FaithPower>(2M)];
 
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ CardKeyword.Exhaust ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FaithPower>()];
 

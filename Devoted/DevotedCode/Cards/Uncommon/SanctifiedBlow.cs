@@ -26,7 +26,7 @@ public class SanctifiedBlow() : DevotedCard(1, CardType.Attack, CardRarity.Uncom
         SanctifiedBlow cardSource = this;
         ArgumentNullException.ThrowIfNull((object) cardPlay.Target, "cardPlay.Target");
         AttackCommand attackCommand = await DamageCmd.Attack(cardSource.DynamicVars.Damage.BaseValue).FromCard((CardModel) cardSource).Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        FaithPower vigorPower = await PowerCmd.Apply<FaithPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["SanctifiedBlow"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
+        FaithPower vigorPower = await PowerCmd.Apply<FaithPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["FaithPower"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
         IEnumerable<CardModel> cardModels = await CardPileCmd.Draw(choiceContext, cardSource.DynamicVars.Cards.BaseValue, cardSource.Owner);
     }
 

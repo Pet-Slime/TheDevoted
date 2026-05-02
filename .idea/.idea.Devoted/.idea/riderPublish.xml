@@ -4,6 +4,7 @@
     <option name="locations">
       <list>
         <option value="E:/SteamLibrary/steamapps/common/Slay the Spire 2/mods/TheDevoted" />
+        <option value="$USER_HOME$/Downloads/sts2/test" />
       </list>
     </option>
   </component>

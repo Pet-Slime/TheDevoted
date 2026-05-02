@@ -1,3 +1,11 @@
 {
-  
+  "DEVOTED-FLAME_OF_HOPE.description": "At the start of your turn, gain 1 [gold]Faith[/gold]",
+  "DEVOTED-FLAME_OF_HOPE.flavor": "WIP",
+  "DEVOTED-FLAME_OF_HOPE.title": "Flame Of Hope",
+  "DEVOTED-FLAME_OF_BELIEF.description": "At the start of your turn, gain 3 [gold]Faith[/gold]",
+  "DEVOTED-FLAME_OF_BELIEF.flavor": "WIP",
+  "DEVOTED-FLAME_OF_BELIEF.title": "Flame Of Belief",
+  "MELTING_HEART.description": "At the start of combat, gain 2 Slippery.",
+  "MELTING_HEART.flavor": "",
+  "MELTING_HEART.title": "MeltingHeart"
 }

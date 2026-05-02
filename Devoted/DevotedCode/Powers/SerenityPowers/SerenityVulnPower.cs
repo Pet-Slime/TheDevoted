@@ -55,7 +55,7 @@ public class SerenityVulnPower: DevotedPower
         if (target == null)
             return;
         VfxCmd.PlayOnCreatureCenter(target, "vfx/vfx_attack_blunt");
-        await PowerCmd.Apply<WeakPower>(choiceContext, target, power.Amount, power.Owner, null);
+        await PowerCmd.Apply<VulnerablePower>(choiceContext, target, power.Amount, power.Owner, null);
     }
     
     private bool CanTrigger

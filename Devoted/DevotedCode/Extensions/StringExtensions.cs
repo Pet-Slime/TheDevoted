@@ -72,4 +72,10 @@ public static class StringExtensions
     {
         return Path.Join(MainFile.ResPath, "scenes", "combat", "energy_counters", path);
     }
+    
+    
+    public static string PackedPotionImagePath(this string path)
+    {
+        return Path.Join(MainFile.ResPath, "images", "potions", path);
+    }
 }

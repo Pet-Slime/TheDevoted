@@ -1,0 +1,10 @@
+﻿{
+  "DEVOTED-FAITH_POTION.description": "Gain {FaithPower:diff()} [gold]Faith[/gold].",
+  "DEVOTED-FAITH_POTION.title": "Faith Potion",
+
+  "DEVOTED-PENANCE_POTION.description": "Gain {PenanceEnergyPower:diff()} [gold]Penance: Energy[/gold].",
+  "DEVOTED-PENANCE_POTION.title": "Penance Potion",
+
+  "DEVOTED-SERENITY_POTION.description": "Gain {SerenityBlockPower:diff()} [gold]Serenity: Refuge[/gold].",
+  "DEVOTED-SERENITY_POTION.title": "Serenity Potion"
+}

@@ -17,10 +17,10 @@ namespace Devoted.DevotedCode.Cards.Common;
 
 
 [Pool(typeof(DevotedCardPool))]
-public class DivineHymn() : DevotedCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class DivineHymn() : DevotedCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7, ValueProp.Move), new CalculationBaseVar(0M), new CalculationExtraVar(1M), 
+    protected override IEnumerable<DynamicVar> CanonicalVars => [ new CalculationBaseVar(5M), new CalculationExtraVar(1M), 
     
         new CalculatedBlockVar(ValueProp.Move).WithMultiplier((Func<CardModel, Creature, Decimal>) ((card, _) =>
         {
@@ -40,5 +40,8 @@ public class DivineHymn() : DevotedCard(2, CardType.Skill, CardRarity.Common, Ta
         Decimal num = await CreatureCmd.GainBlock(mirage.Owner.Creature, mirage.DynamicVars.CalculatedBlock.Calculate(cardPlay.Target), mirage.DynamicVars.CalculatedBlock.Props, cardPlay);
     }
     
-    protected override void OnUpgrade() => this.EnergyCost.UpgradeBy(-1);
+    protected override void OnUpgrade()
+    {
+        DynamicVars.CalculationBase.UpgradeValueBy(1m);
+    }
 }

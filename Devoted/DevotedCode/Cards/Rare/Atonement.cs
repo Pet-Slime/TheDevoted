@@ -21,13 +21,13 @@ public class Atonement() : DevotedCard(3, CardType.Power, CardRarity.Rare, Targe
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PenanceHealPower>()];
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceHealPower>(2M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceHealPower>(1M)];
 
     protected override async Task OnPlay(MegaCrit.Sts2.Core.GameActions.Multiplayer.PlayerChoiceContext choiceContext, CardPlay play)
     {
         Atonement cardSource = this;
         await CreatureCmd.TriggerAnim(cardSource.Owner.Creature, "Cast", cardSource.Owner.Character.CastAnimDelay);
-        PenanceTriggerPower demonFormPower = await PowerCmd.Apply<PenanceTriggerPower>(choiceContext, cardSource.Owner.Creature, cardSource.DynamicVars["PenanceHealPower"].BaseValue, cardSource.Owner.Creature, (CardModel) cardSource);
+        PenanceHealPower demonFormPower = await PowerCmd.Apply<PenanceHealPower>(choiceContext, cardSource.Owner.Creature, cardSource.DynamicVars["PenanceHealPower"].BaseValue, cardSource.Owner.Creature, (CardModel) cardSource);
     }
     
     protected override void OnUpgrade() => this.EnergyCost.UpgradeBy(-1);
