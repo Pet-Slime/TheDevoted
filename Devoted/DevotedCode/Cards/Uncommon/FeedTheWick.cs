@@ -21,7 +21,7 @@ public class FeedTheWick() : DevotedCard(1, CardType.Skill, CardRarity.Uncommon,
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceWaxedPower>(2M), new BlockVar(5, ValueProp.Move)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(MyCustomEnums.Waxed), HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -31,14 +31,21 @@ public class FeedTheWick() : DevotedCard(1, CardType.Skill, CardRarity.Uncommon,
         await CreatureCmd.TriggerAnim(cardSource.Owner.Creature, "Cast", cardSource.Owner.Character.CastAnimDelay);
         PenanceWaxedPower energyPower = await PowerCmd.Apply<PenanceWaxedPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["PenanceWaxedPower"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
         CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1);
-        CardModel card = (await CardSelectCmd.FromHand(choiceContext, cardSource.Owner, prefs, (Func<CardModel, bool>) null, (AbstractModel) cardSource)).FirstOrDefault<CardModel>();
+        CardModel card = (await CardSelectCmd.FromHand(choiceContext, cardSource.Owner, prefs, (Func<CardModel, bool>) IsValidWaxTarget, (AbstractModel) cardSource)).FirstOrDefault<CardModel>();
         if (card == null)
             return;
-        await CardCmd.Exhaust(choiceContext, card);
+        CardCmd.ApplyKeyword(card, MyCustomEnums.Waxed);
     }
     
     protected override void OnUpgrade()
     {
         DynamicVars["Block"].UpgradeValueBy(3m);
     }
+    
+    private static bool IsValidWaxTarget(CardModel c)
+    {
+        return !(c.Keywords.Contains(MyCustomEnums.Waxed)
+                 || c.Keywords.Contains(CardKeyword.Exhaust));
+    }
+    
 }

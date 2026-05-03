@@ -91,7 +91,7 @@
   "DEVOTED-DIVINE_STRENGTH.title": "Divine Strength",
   "DEVOTED-LATENT_SPARK.description": "Gain {PenanceEnergyPower:diff()} [gold]Penance: Energy[/gold].\nGain {PenanceDrawPower:diff()} [gold]Penance: Draw[/gold].",
   "DEVOTED-LATENT_SPARK.title": "Latent Spark",
-  "DEVOTED-FEED_THE_WICK.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {PenanceWaxedPower:diff()} [gold]Penance: Waxy[/gold].\n[gold]Exhaust[/gold] 1 card.",
+  "DEVOTED-FEED_THE_WICK.description": "Gain {Block:diff()} [gold]Block[/gold].\nGain {PenanceWaxedPower:diff()} [gold]Penance: Waxy[/gold].\n[gold]Wax[/gold] 1 card.",
   "DEVOTED-FEED_THE_WICK.title": "Feed The Wick",
   "DEVOTED-BURNING_LESSON.description": "Remove all [gold]Block[/gold] from the enemy.\nDeal {Damage:diff()} damage",
   "DEVOTED-BURNING_LESSON.title": "Burning Lesson",
@@ -100,5 +100,9 @@
   "DEVOTED-CADENCE_OF_LIGHT.description": "Deal [gold]Faith[/gold]+{CalculationBase:diff()} damage X times.",
   "DEVOTED-CADENCE_OF_LIGHT.title": "Cadence Of Light",
   "DEVOTED-ZEALOUS_FURY.description": "Gain X+{ZealFuryRepeat:diff()} [gold]Penance: Strength[/gold].\n Lose X+{ZealFuryRepeat:diff()} [gold]Zeal[/gold].",
-  "DEVOTED-ZEALOUS_FURY.title": "Zealous Fury"
+  "DEVOTED-ZEALOUS_FURY.title": "Zealous Fury",
+  "DEVOTED-WAX_COPY.description": "[gold]Exhaust[/gold] {Repeat:diff()} card.\nAdd {Cards:diff()} [gold]Wax[/gold] copies of it into your hand.",
+  "DEVOTED-WAX_COPY.title": "Wax Copy", 
+  "DEVOTED-CANDLE_MAKING.description": "Gain {Block:diff()} [gold]Block[/gold].\n[gold]Wax[/gold] 1 card from your Draw Pile.",
+  "DEVOTED-CANDLE_MAKING.title": "Candle Making"
 }
