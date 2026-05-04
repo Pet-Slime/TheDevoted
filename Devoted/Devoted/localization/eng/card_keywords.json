@@ -5,7 +5,7 @@
   "DEVOTED-DEVOTION.title": "Devotion",
   "DEVOTED-FAITH.description": "Tooltip",
   "DEVOTED-FAITH.title": "Faith",
-  "DEVOTED-WAXED.description": "Card is [gold]Exhausted[/gold] after being played twice.",
+  "DEVOTED-WAXED.description": "Card is [gold]Exhausted[/gold] after being played twice.\nA card with the [gold]Exhaust[/gold] keyword can not be [gold]Waxed[/gold].",
   "DEVOTED-WAXED.title": "Wax",
   "DEVOTED-WAXED.wasCardPrefix": "Wax ",
   "DEVOTED-WAXED.wasCardPrefixMelting": "Melted Wax "

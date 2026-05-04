@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using Devoted.DevotedCode.Character;
+using Devoted.DevotedCode.Keywords;
 using Devoted.DevotedCode.Powers.FaithPowers;
 using Devoted.DevotedCode.Powers.PenancePowers;
 using MegaCrit.Sts2.Core.CardSelection;
@@ -21,7 +22,7 @@ public class FeedTheWick() : DevotedCard(1, CardType.Skill, CardRarity.Uncommon,
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceWaxedPower>(2M), new BlockVar(5, ValueProp.Move)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(MyCustomEnums.Waxed), HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PenanceWaxedPower>(), HoverTipFactory.FromKeyword(MyCustomEnums.Waxed), HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
     
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -76,5 +76,11 @@
   "DEVOTED-DIVINE_STRENGTH_POWER.title": "Divine Strength",
   "DEVOTED-PENANCE_STRENGTH_POWER.description": "Whenever you take unblocked attack damage, gain [blue]1[/blue] [gold]Strength[/gold].\nThen reduce this amount by 1.",
   "DEVOTED-PENANCE_STRENGTH_POWER.smartDescription": "Whenever you take unblocked attack damage, gain [blue]{Amount}[/blue] [gold]Strength[/gold].\nThen reduce this amount by 1.",
-  "DEVOTED-PENANCE_STRENGTH_POWER.title": "Penance: Strength"
+  "DEVOTED-PENANCE_STRENGTH_POWER.title": "Penance: Strength",
+  "DEVOTED-WAXEN_STRIKE_POWER.description": "Whenever you use a non-[gold]Wax[/gold] “Strike” card, add a [gold]Wax[/gold] copy to your hand that costs 0.",
+  "DEVOTED-WAXEN_STRIKE_POWER.smartDescription": "Whenever you use a non-[gold]Wax[/gold] “Strike” card, add a [gold]Wax[/gold] copy to your hand that costs 0.",
+  "DEVOTED-WAXEN_STRIKE_POWER.title": "Waxen Echo",
+  "DEVOTED-VOW_OF_ASH_POWER.description": "When playing a card that is attack type; Take 5 damage.",
+  "DEVOTED-VOW_OF_ASH_POWER.smartDescription": "When playing a card that is attack type; Take 5 damage.",
+  "DEVOTED-VOW_OF_ASH_POWER.title": "Vow Of Ash"
 }

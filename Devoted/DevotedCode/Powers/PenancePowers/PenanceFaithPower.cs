@@ -1,4 +1,5 @@
-﻿using Devoted.DevotedCode.Powers.FaithPowers;
+﻿using Devoted.DevotedCode.Keywords;
+using Devoted.DevotedCode.Powers.FaithPowers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;

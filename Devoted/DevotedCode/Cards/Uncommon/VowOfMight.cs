@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using Devoted.DevotedCode.Character;
+using Devoted.DevotedCode.Keywords;
 using Devoted.DevotedCode.Powers;
 using Devoted.DevotedCode.Powers.VowPowers;
 using MegaCrit.Sts2.Core.Commands;
@@ -16,6 +17,8 @@ namespace Devoted.DevotedCode.Cards.Uncommon;
 [Pool(typeof(DevotedCardPool))]
 public class VowOfMight() : DevotedCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    
+    protected override HashSet<CardTag> CanonicalTags => [MyCustomEnums.VowOfStrength];    
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VigorPower>(3M), new PowerVar<VowOfStrengthPower>(2M)];
 

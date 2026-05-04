@@ -1,4 +1,5 @@
-﻿using Devoted.DevotedCode.Powers.FaithPowers;
+﻿using Devoted.DevotedCode.Keywords;
+using Devoted.DevotedCode.Powers.FaithPowers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
 using MegaCrit.Sts2.Core.Commands;

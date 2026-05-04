@@ -14,8 +14,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace Devoted.DevotedCode.Cards.Uncommon;
 
 
+
 [Pool(typeof(DevotedCardPool))]
-public class Lashing() : DevotedCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class ScourAndStoke() : DevotedCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -27,7 +28,7 @@ public class Lashing() : DevotedCard(2, CardType.Attack, CardRarity.Uncommon, Ta
     protected override async Task OnPlay(MegaCrit.Sts2.Core.GameActions.Multiplayer.PlayerChoiceContext choiceContext,
         CardPlay cardPlay)
     {
-        Lashing card = this;
+        ScourAndStoke card = this;
         ArgumentNullException.ThrowIfNull((object)cardPlay.Target, "cardPlay.Target");
         AttackCommand attackCommand = await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).WithHitCount(3)
             .FromCard((CardModel)card).Targeting(cardPlay.Target).WithHitFx("vfx/vfx_attack_slash")

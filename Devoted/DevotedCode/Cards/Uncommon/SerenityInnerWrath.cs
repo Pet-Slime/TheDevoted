@@ -1,6 +1,7 @@
 ﻿using BaseLib.Utils;
 using Devoted.DevotedCode.Cards.Rare;
 using Devoted.DevotedCode.Character;
+using Devoted.DevotedCode.Keywords;
 using Devoted.DevotedCode.Powers.FaithPowers;
 using Devoted.DevotedCode.Powers.PenancePowers;
 using Devoted.DevotedCode.Powers.SerenityPowers;

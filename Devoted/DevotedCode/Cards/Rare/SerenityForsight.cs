@@ -1,15 +1,13 @@
 ﻿using BaseLib.Utils;
-using Devoted.DevotedCode.Cards.Rare;
 using Devoted.DevotedCode.Character;
-using Devoted.DevotedCode.Powers.PenancePowers;
+using Devoted.DevotedCode.Keywords;
 using Devoted.DevotedCode.Powers.SerenityPowers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
-namespace Devoted.DevotedCode.Cards.Uncommon;
+namespace Devoted.DevotedCode.Cards.Rare;
 
 
 

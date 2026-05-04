@@ -2,7 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
 
-namespace Devoted.DevotedCode;
+namespace Devoted.DevotedCode.Keywords;
 
   
 public static class MyCustomEnums
@@ -13,6 +13,8 @@ public static class MyCustomEnums
     [CustomEnum] public static CardTag PenanceCard;
     [CustomEnum] public static CardTag SerenityTrigger;
     [CustomEnum] public static CardTag SerenityCard;
+    [CustomEnum] public static CardTag VowOfAsh;
+    [CustomEnum] public static CardTag VowOfStrength;
     
 
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]

@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using Devoted.DevotedCode.Character;
+using Devoted.DevotedCode.Keywords;
 using Devoted.DevotedCode.Powers.FaithPowers;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -16,7 +17,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace Devoted.DevotedCode.Cards.Rare;
 
 [Pool(typeof(DevotedCardPool))]
-public class WaxCopy() : DevotedCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class WaxCopy() : DevotedCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new RepeatVar(1),new CardsVar(2)];
@@ -59,6 +60,6 @@ public class WaxCopy() : DevotedCard(0, CardType.Skill, CardRarity.Rare, TargetT
     
     protected override void OnUpgrade()
     {
-        DynamicVars["Cards"].UpgradeValueBy(1m);
+        EnergyCost.UpgradeBy(-1);
     }
 }
