@@ -20,7 +20,7 @@ namespace Devoted.DevotedCode.Cards.Uncommon;
 public class CrushingUnder() : DevotedCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceWaxedPower>(2M), new DamageVar(15, ValueProp.Move), new HpLossVar(1M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PenanceWaxedPower>(2M), new DamageVar(15, ValueProp.Move)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PenanceWaxedPower>()];
 
@@ -30,7 +30,6 @@ public class CrushingUnder() : DevotedCard(1, CardType.Attack, CardRarity.Uncomm
         CrushingUnder cardSource = this;
         
         VfxCmd.PlayOnCreatureCenter(cardSource.Owner.Creature, "vfx/vfx_bloody_impact");
-        IEnumerable<DamageResult> damageResults = await CreatureCmd.Damage(choiceContext, cardSource.Owner.Creature, cardSource.DynamicVars.HpLoss.BaseValue,  ValueProp.Unpowered | ValueProp.Move, (CardModel) cardSource);
         AttackCommand attackCommand = await DamageCmd.Attack(cardSource.DynamicVars.Damage.BaseValue).FromCard((CardModel) cardSource).TargetingAllOpponents(cardSource.CombatState).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "heavy_attack.mp3").Execute(choiceContext);
         PenanceWaxedPower vigorPower = await PowerCmd.Apply<PenanceWaxedPower>(choiceContext, cardSource.Owner.Creature, (Decimal) cardSource.DynamicVars["PenanceWaxedPower"].IntValue, cardSource.Owner.Creature, (CardModel) cardSource);
     }
