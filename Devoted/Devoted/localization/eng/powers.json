@@ -82,5 +82,8 @@
   "DEVOTED-WAXEN_STRIKE_POWER.title": "Waxen Echo",
   "DEVOTED-VOW_OF_ASH_POWER.description": "When playing a card that is attack type; Take 5 damage.",
   "DEVOTED-VOW_OF_ASH_POWER.smartDescription": "When playing a card that is attack type; Take 5 damage.",
-  "DEVOTED-VOW_OF_ASH_POWER.title": "Vow Of Ash"
+  "DEVOTED-VOW_OF_ASH_POWER.title": "Vow Of Ash",
+  "DEVOTED-CHAIN_LIGHTING_POWER.description": "The next [gold]Wax card[/gold] you play costs [blue]0[/blue].",
+  "DEVOTED-CHAIN_LIGHTING_POWER.smartDescription": "The next [blue]{Amount}[/blue] [gold]Waxed[/gold] {Amount:plural:card|cards} you play {Amount:plural:costs|cost} [blue]0[/blue].",
+  "DEVOTED-CHAIN_LIGHTING_POWER.title": "Candle Lighting"
 }

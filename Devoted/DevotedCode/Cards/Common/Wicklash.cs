@@ -21,7 +21,8 @@ public class Wicklash() : DevotedCard(1, CardType.Attack, CardRarity.Common, Tar
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(9M, ValueProp.Move)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(CardKeyword.Exhaust), HoverTipFactory.FromKeyword(MyCustomEnums.Waxed)];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(MyCustomEnums.Waxed), HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
