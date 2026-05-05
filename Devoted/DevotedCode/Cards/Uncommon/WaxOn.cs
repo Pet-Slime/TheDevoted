@@ -38,6 +38,7 @@ public class WaxOn() : DevotedCard(2, CardType.Skill, CardRarity.Uncommon, Targe
             
             CardCmd.ApplyKeyword(card, MyCustomEnums.Waxed);
             ++exhaustedCount;
+            
         }
         
         FaithPower faithPower = (await PowerCmd.Apply<FaithPower>(choiceContext, 
