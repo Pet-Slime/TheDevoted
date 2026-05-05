@@ -118,5 +118,7 @@
   "DEVOTED-VOW_OF_ASH.description": "Deal {Damage:diff()} damage.\nFor the next two turns when playing an Attack card; Take 4 damage.",
   "DEVOTED-VOW_OF_ASH.title": "Vow Of Ash",
   "DEVOTED-OVEREXERT.description": "Lose {StrengthPower:diff()} [gold]Strength[/gold].\nGain {VigorPower:diff()} [gold]Vigor[/gold].",
-  "DEVOTED-OVEREXERT.title": "Overexert"
+  "DEVOTED-OVEREXERT.title": "Overexert",
+  "DEVOTED-CHAIN_LIGHTING.description": "Deal {Damage:diff()} damage.\nThe next [gold]Wax[/gold] card you play costs 0 {energyPrefix:energyIcons(1)}.",
+  "DEVOTED-CHAIN_LIGHTING.title": "Chain Lighting"
 }
