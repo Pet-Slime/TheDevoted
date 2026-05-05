@@ -30,13 +30,18 @@ public class WaxOn() : DevotedCard(2, CardType.Skill, CardRarity.Uncommon, Targe
         await CreatureCmd.TriggerAnim(cardSource.Owner.Creature, "Cast", cardSource.Owner.Character.CastAnimDelay);
         List<CardModel> list = cardSource.Owner.PlayerCombatState.Hand.Cards.ToList<CardModel>();
         int exhaustedCount = 0;
+        MainFile.Logger.Info($"list count is {list.Count}");
         foreach (CardModel card in list)
         {
+            
+            MainFile.Logger.Info($"current card checking {card.ToString()}");
             bool alreadyWaxed = IsValidWaxTarget(card);
-            if (alreadyWaxed)
-                return;
+            MainFile.Logger.Info($"already waxed {alreadyWaxed}");
+            if (!alreadyWaxed)
+                continue;
             
             CardCmd.ApplyKeyword(card, MyCustomEnums.Waxed);
+            MainFile.Logger.Info($"Waxed {card.Keywords.Contains(MyCustomEnums.Waxed)}");
             ++exhaustedCount;
             
         }
@@ -55,6 +60,6 @@ public class WaxOn() : DevotedCard(2, CardType.Skill, CardRarity.Uncommon, Targe
     
     protected override void OnUpgrade()
     {
-        DynamicVars["FaithPower"].UpgradeValueBy(2m);
+        DynamicVars["FaithPower"].UpgradeValueBy(1m);
     }
 }

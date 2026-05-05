@@ -33,7 +33,7 @@ public class CandleMaking() : DevotedCard(1, CardType.Skill, CardRarity.Common, 
             "Cast",
             cardSource.Owner.Character.CastAnimDelay);
 
-        var drawPile = PileType.Discard.GetPile(cardSource.Owner).Cards;
+        var drawPile = PileType.Draw.GetPile(cardSource.Owner).Cards;
 
         if (drawPile.Count == 0)
             return;
