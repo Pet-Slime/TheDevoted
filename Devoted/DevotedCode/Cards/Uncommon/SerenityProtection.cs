@@ -20,7 +20,7 @@ public class SerenityProtection() : DevotedCard(1, CardType.Power, CardRarity.Un
     
     protected override HashSet<CardTag> CanonicalTags => [MyCustomEnums.SerenityCard];    
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SerenityBlockPower>(1M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SerenityBlockPower>(2M)];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Block)]; 
 

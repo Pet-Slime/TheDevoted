@@ -42,13 +42,15 @@ public class VowOfStrikesPower : DevotedPower
         }
     }
     
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
         VowOfStrikesPower power = this;
-        if (side != power.Owner.Side)
+        if (side != CombatSide.Enemy)
             return;
-        power.Flash();
-        await PowerCmd.Decrement((PowerModel)power);
+        await PowerCmd.Decrement((PowerModel) power);
     }
 
 }

@@ -36,12 +36,14 @@ public class SerenityDamagePower: DevotedPower
         await ResolveSerenityEffect();
     }
     
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
         SerenityDamagePower power = this;
-        if (side != CombatSide.Player || !power.CanTrigger)
+        if (side != CombatSide.Enemy)
             return;
-        
         await ResolveSerenityEffect();
     }
     

@@ -3,12 +3,15 @@
   "name": "Devoted",
   "author": "moonSlime",
   "description": "Slay the Spire 2 character mod created from a template for use with BaseLib",
-  "version": "v0.0.1",
-  "min_game_version": "0.105.0",
+  "version": "v1.4.5",
   "has_pck": true,
   "has_dll": true,
+  "min_game_version": "0.105.0",
   "dependencies": [
-    {"id": "BaseLib", "min_version": "3.1.2"}
+    {
+      "id": "BaseLib",
+      "min_version": "3.1.8"
+    }
   ],
   "affects_gameplay": true
 }

@@ -42,12 +42,14 @@ public class SerenityBlockPower: DevotedPower
         await ResolveSerenityEffect(choiceContext);
     }
     
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
         SerenityBlockPower power = this;
-        if (side != CombatSide.Player || !power.CanTrigger)
+        if (side != CombatSide.Enemy)
             return;
-        
         await ResolveSerenityEffect(choiceContext);
     }
     

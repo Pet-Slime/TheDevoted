@@ -1,6 +1,7 @@
 ﻿using Devoted.DevotedCode.Powers.FaithPowers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -21,10 +22,13 @@ public class MeltingHeart: RelicModel
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<SlipperyPower>()];
     
-    public override async Task AfterSideTurnStart(CombatSide side, ICombatState combatState)
+    public override async Task AfterSideTurnStart(
+        CombatSide side,
+        IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
         MeltingHeart akabeko = this;
-        if (side != akabeko.Owner.Creature.Side || combatState.RoundNumber > 1)
+        if (!participants.Contains<Creature>(akabeko.Owner.Creature) || akabeko.Owner.PlayerCombatState.TurnNumber > 1)
             return;
         akabeko.Flash();
         SlipperyPower vigorPower = await PowerCmd.Apply<SlipperyPower>((PlayerChoiceContext) new ThrowingPlayerChoiceContext(), akabeko.Owner.Creature, (Decimal) akabeko.DynamicVars["SlipperyPower"].IntValue, akabeko.Owner.Creature, (CardModel) null);

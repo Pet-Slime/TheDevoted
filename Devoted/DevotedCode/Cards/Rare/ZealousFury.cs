@@ -19,7 +19,7 @@ public class ZealousFury() : DevotedCard(0, CardType.Power, CardRarity.Rare, Tar
 {
     
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("ZealFuryRepeat", 1m)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DynamicVar("ZealFuryRepeat", 0m)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<PenanceStrengthPower>(), HoverTipFactory.FromPower<ZealPower>()];
     protected override bool HasEnergyCostX => true;
 

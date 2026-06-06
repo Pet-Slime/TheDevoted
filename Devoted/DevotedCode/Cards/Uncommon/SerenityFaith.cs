@@ -24,7 +24,7 @@ public class SerenityFaith() : DevotedCard(1, CardType.Power, CardRarity.Uncommo
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<FaithPower>()]; 
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SerenityFaithPower>(1M)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SerenityFaithPower>(2M)];
 
     protected override async Task OnPlay(MegaCrit.Sts2.Core.GameActions.Multiplayer.PlayerChoiceContext choiceContext, CardPlay play)
     {

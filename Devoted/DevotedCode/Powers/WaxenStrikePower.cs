@@ -4,9 +4,11 @@ using Devoted.DevotedCode.Powers.VowPowers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace Devoted.DevotedCode.Powers;
 
@@ -36,13 +38,15 @@ public class WaxenStrikePower : DevotedPower
         await CardPileCmd.AddGeneratedCardToCombat(clone, PileType.Hand, card.Owner);
     }
     
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
         WaxenStrikePower power = this;
-        if (side != power.Owner.Side)
+        if (side != CombatSide.Enemy)
             return;
-        power.Flash();
-        await PowerCmd.Decrement((PowerModel)power);
+        await PowerCmd.Decrement((PowerModel) power);
     }
     
     private static bool IsValidWaxTarget(CardModel c)

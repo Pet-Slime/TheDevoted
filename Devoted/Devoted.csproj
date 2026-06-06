@@ -61,6 +61,7 @@
 
     <ItemGroup>
         <Folder Include="DevotedCode\Cards\Ancient\" />
+        <Folder Include="Devoted\iconsources\" />
         <Folder Include="Devoted\images\card_portraits\big\"/>
         <Folder Include="Devoted\images\potions\" />
         <Folder Include="Devoted\images\powers\big\"/>
