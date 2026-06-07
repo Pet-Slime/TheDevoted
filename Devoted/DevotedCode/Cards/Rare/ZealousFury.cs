@@ -2,7 +2,6 @@
 using Devoted.DevotedCode.Character;
 using Devoted.DevotedCode.Powers.FaithPowers;
 using Devoted.DevotedCode.Powers.PenancePowers;
-using Devoted.DevotedCode.Powers.SerenityPowers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;

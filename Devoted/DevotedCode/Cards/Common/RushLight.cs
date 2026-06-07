@@ -21,7 +21,7 @@ namespace Devoted.DevotedCode.Cards.Common;
 public class RushLight() : DevotedCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(15M, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(18M, ValueProp.Move)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromKeyword(MyCustomEnums.Waxed), HoverTipFactory.FromKeyword(CardKeyword.Exhaust)];
 
@@ -44,7 +44,7 @@ public class RushLight() : DevotedCard(2, CardType.Attack, CardRarity.Common, Ta
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3m);
+        DynamicVars.Damage.UpgradeValueBy(6m);
     }
     
     private static bool IsValidWaxTarget(CardModel c)

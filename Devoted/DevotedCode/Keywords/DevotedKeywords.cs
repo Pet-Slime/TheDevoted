@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Models;
 namespace Devoted.DevotedCode.Keywords;
 
   
+
 public static class MyCustomEnums
 {
 
@@ -23,6 +24,14 @@ public static class MyCustomEnums
     public static bool IsFaith(this CardModel card)
     {
         return card.Keywords.Contains(Waxed);
+    }
+    
+    [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
+    public static CardKeyword Toll;
+    
+    public static bool IsToll(this CardModel card)
+    {
+        return card.Keywords.Contains(Toll);
     }
     
 

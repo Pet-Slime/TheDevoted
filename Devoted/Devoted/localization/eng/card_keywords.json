@@ -8,5 +8,7 @@
   "DEVOTED-WAXED.description": "Card is [gold]Exhausted[/gold] after being played twice.\nA card with the [gold]Exhaust[/gold] keyword can not be [gold]Waxed[/gold].",
   "DEVOTED-WAXED.title": "Wax",
   "DEVOTED-WAXED.wasCardPrefix": "Wax ",
-  "DEVOTED-WAXED.wasCardPrefixMelting": "Melted Wax "
+  "DEVOTED-WAXED.wasCardPrefixMelting": "Melted Wax ",
+  "DEVOTED-TOLL.description": "When a card with [gold]Toll[/gold] is played, trigger all your [gold]Chime[/gold] effects.",
+  "DEVOTED-TOLL.title": "Toll"
 }

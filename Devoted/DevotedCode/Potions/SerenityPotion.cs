@@ -1,6 +1,6 @@
-﻿using Devoted.DevotedCode.Powers.FaithPowers;
+﻿using Devoted.DevotedCode.Powers.ChimePowers;
+using Devoted.DevotedCode.Powers.FaithPowers;
 using Devoted.DevotedCode.Powers.PenancePowers;
-using Devoted.DevotedCode.Powers.SerenityPowers;
 using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -24,11 +24,11 @@ public class SerenityPotion : DevotedPotion
 
     public override PotionUsage Usage => PotionUsage.CombatOnly;
 
-    public override TargetType TargetType => TargetType.AnyAlly;
+    public override TargetType TargetType => TargetType.Self;
     
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<SerenityBlockPower>(2M)];
-    public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<SerenityBlockPower>(),];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ChimeBlockPower>(5M)];
+    public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ChimeBlockPower>()];
 
     
     protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
@@ -36,6 +36,6 @@ public class SerenityPotion : DevotedPotion
         SerenityPotion faithPotion = this;
         PotionModel.AssertValidForTargetedPotion(target);
         NCombatRoom.Instance?.PlaySplashVfx(target, new Color("fd2155"));
-        SerenityBlockPower faithPower = await PowerCmd.Apply<SerenityBlockPower>(choiceContext, target, faithPotion.DynamicVars["SerenityBlockPower"].BaseValue, faithPotion.Owner.Creature, (CardModel) null);
+        ChimeBlockPower faithPower = await PowerCmd.Apply<ChimeBlockPower>(choiceContext, target, faithPotion.DynamicVars["ChimeBlockPower"].BaseValue, faithPotion.Owner.Creature, (CardModel) null);
     }
 }
