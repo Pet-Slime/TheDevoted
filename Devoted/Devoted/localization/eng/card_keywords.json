@@ -9,6 +9,6 @@
   "DEVOTED-WAXED.title": "Wax",
   "DEVOTED-WAXED.wasCardPrefix": "Wax ",
   "DEVOTED-WAXED.wasCardPrefixMelting": "Melted Wax ",
-  "DEVOTED-TOLL.description": "When a card with [gold]Toll[/gold] is played, trigger all your [gold]Chime[/gold] effects.",
+  "DEVOTED-TOLL.description": "After a card with [gold]Toll[/gold] is played, trigger all your [gold]Chime[/gold] effects.",
   "DEVOTED-TOLL.title": "Toll"
 }

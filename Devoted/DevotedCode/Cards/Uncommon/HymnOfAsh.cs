@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using Devoted.DevotedCode.Character;
+using Devoted.DevotedCode.Keywords;
 using Devoted.DevotedCode.Powers.FaithPowers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -28,6 +29,9 @@ public class HymnOfAsh() : DevotedCard(1, CardType.Attack, CardRarity.Uncommon, 
             return (Decimal) (combatState != null ? combatState.PlayerCreatures.Where<Creature>((Func<Creature, bool>) (c => c.IsAlive)).Sum<Creature>((Func<Creature, int>) (c => c.GetPowerAmount<ZealPower>())) : 0);
         }))];
 
+    
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [ MyCustomEnums.Toll ];
+    
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<ZealPower>()];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

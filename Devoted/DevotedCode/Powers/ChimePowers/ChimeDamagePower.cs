@@ -13,27 +13,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace Devoted.DevotedCode.Powers.ChimePowers;
 
   
-public class ChimeDamagePower: DevotedPower
+public class ChimeDamagePower: ChimeBasePower
 {
-    public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Counter;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(1, ValueProp.Move)];
     
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        if (cardPlay.Card.Owner != Owner.Player)
-            return;
 
-        bool hasTollTag = cardPlay.Card.Keywords.Contains(MyCustomEnums.Toll);
-        
-        if (!(hasTollTag))
-            return;
-        
-        await ResolveSerenityEffect(choiceContext);
-    }
-    
-    private async Task ResolveSerenityEffect(PlayerChoiceContext choiceContext)
+    protected override async Task ResolveChimeEffect(PlayerChoiceContext choiceContext)
     {
         ChimeDamagePower power = this;
         Creature target = power.Owner.Player.RunState.Rng.CombatTargets.NextItem<Creature>((IEnumerable<Creature>) power.Owner.CombatState.HittableEnemies);

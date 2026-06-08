@@ -30,11 +30,11 @@ public class BellOfInnerWrath() : DevotedCard(1, CardType.Power, CardRarity.Unco
     {
         BellOfInnerWrath cardSource = this;
         await CreatureCmd.TriggerAnim(cardSource.Owner.Creature, "Cast", cardSource.Owner.Character.CastAnimDelay);
-        ChimeZealotryPower demonFormPower = await PowerCmd.Apply<ChimeZealotryPower>(choiceContext, cardSource.Owner.Creature, cardSource.DynamicVars["SerenityZealotryPower"].BaseValue, cardSource.Owner.Creature, (CardModel) cardSource);
+        ChimeZealotryPower demonFormPower = await PowerCmd.Apply<ChimeZealotryPower>(choiceContext, cardSource.Owner.Creature, cardSource.DynamicVars["ChimeZealotryPower"].BaseValue, cardSource.Owner.Creature, (CardModel) cardSource);
     }
     
     protected override void OnUpgrade()
     {
-        DynamicVars["SerenityZealotryPower"].UpgradeValueBy(1m);
+        DynamicVars["ChimeZealotryPower"].UpgradeValueBy(1m);
     }
 }

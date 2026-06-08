@@ -85,5 +85,8 @@
   "DEVOTED-VOW_OF_ASH_POWER.title": "Vow Of Ash",
   "DEVOTED-CHAIN_LIGHTING_POWER.description": "The next [gold]Wax card[/gold] you play costs [blue]0[/blue].",
   "DEVOTED-CHAIN_LIGHTING_POWER.smartDescription": "The next [blue]{Amount}[/blue] [gold]Waxed[/gold] {Amount:plural:card|cards} you play {Amount:plural:costs|cost} [blue]0[/blue].",
-  "DEVOTED-CHAIN_LIGHTING_POWER.title": "Candle Lighting"
+  "DEVOTED-CHAIN_LIGHTING_POWER.title": "Candle Lighting",
+  "DEVOTED-CHOIR_POWER.description": "Your cards with [gold]Toll[/gold] can activate your allies chime effects.",
+  "DEVOTED-CHOIR_POWER.smartDescription": "Your cards with [gold]Toll[/gold] can activate your allies chime effects.",
+  "DEVOTED-CHOIR_POWER.title": "Choir"
 }

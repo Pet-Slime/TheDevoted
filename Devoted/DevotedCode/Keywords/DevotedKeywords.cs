@@ -16,6 +16,7 @@ public static class MyCustomEnums
     [CustomEnum] public static CardTag SerenityCard;
     [CustomEnum] public static CardTag VowOfAsh;
     [CustomEnum] public static CardTag VowOfStrength;
+    [CustomEnum] public static CardTag TollTriggers;
     
 
     [CustomEnum, KeywordProperties(AutoKeywordPosition.After)]
